@@ -13,10 +13,11 @@ namespace namo.Controllers
         // GET: /Order/
         public ActionResult Index()
         {
-            Models.OrderService orderService = new Models.OrderService();
-            var order = orderService.GetOrderById("111");
-            ViewBag.CustId = order.CustId;
-            ViewBag.CustName = order.CustName;
+            //  Models.OrderService orderService = new Models.OrderService();
+            //   var order = orderService.GetOrderById("111");
+            // ViewBag.CustId = order.CustId;
+            // ViewBag.CustName = order.CustName;
+           
             return View();
         }
         /// <summary>
@@ -35,9 +36,14 @@ namespace namo.Controllers
         [HttpPost()]
         public ActionResult InsertOrder(Order order)
         {
-            Models.OrderService orderService = new Models.OrderService();
-            orderService.InserOrder(order);
-            return View("Index");
+            //  Models.OrderService orderService = new Models.OrderService();
+            //   orderService.InserOrder(order);
+            //return View("Index");
+            ViewBag.Desc = "我是ViewBag";
+            ViewData["Desc2"] = "我是Viewdata";
+            TempData["Desc3"] = "我是TempData";
+            return RedirectToAction("Index");
+
         }
         public JsonResult TestJson()
         {
